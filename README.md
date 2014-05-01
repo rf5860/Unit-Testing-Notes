@@ -6,9 +6,43 @@ Notes on Different Testing Strategies
 - Hamcrest - We were previously using 1.1. Upgraded our libraries to 1.3 early this week.
  - Nice (new) matchers:
 
+Let's take a basic example - we want to compare two values
+
 ```java
-assertThat(1, is(both(greaterThanOrEqualTo(1).and(lessThanOrEqualTo(2)))));
+String actualValue = "someValue";
 ```
+
+Normally, we'd compare them like this"
+
+```java
+assertEquals("otherValue", actualValue);
+```
+
+Or possibly:
+
+```java
+assertTrue("otherValue".equals(actualValue)); // Or some variation thereof.
+```
+
+The second is particularly bad, as a failure on this case doesn't report what the actual returned value is.
+
+In the first case, it is a bit hard to read - and in tests, just like in all code, readability is one of the greatest concerns. There's no point writing awesome code if no-one can read or maintain it.
+
+Phrasing the first option in plain English is a bit obtuse without restructuring it:
+
+"assertEquals "otherValue" actualValue"
+
+No-one talks like this - they do, however, talk like this:
+
+"Assert that actualValue is "otherValue"
+
+Hamcrest provides us with an option of structuring our code so that it reads almost like plain English:
+
+```java
+assertThat(actualValue, is("otherValue"));
+```
+
+Which can make the tests much nicer to maintain.
 
  - Writing your own
 
