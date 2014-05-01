@@ -4,8 +4,7 @@ Unit-Testing-Notes
 Notes on Different Testing Strategies
 
 - Hamcrest - We were previously using 1.1. Upgraded our libraries to 1.3 early this week.
- - Matchers
-   Nice (new) matchers:
+ - Nice (new) matchers:
 
 ```java
 assertThat(1, is(both(greaterThanOrEqualTo(1).and(lessThanOrEqualTo(2)))));
