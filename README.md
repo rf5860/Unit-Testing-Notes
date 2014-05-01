@@ -9,7 +9,7 @@ Notes on Different Testing Strategies
    Nice (new) matchers:
 
 ```java
-assertThat(1, is(both(greaterThanOrEqualTo(1).and9(lessThanOrEqualTo(2)))));
+assertThat(1, is(both(greaterThanOrEqualTo(1).and(lessThanOrEqualTo(2)))));
 ```
 
  - Writing your own
@@ -17,7 +17,7 @@ assertThat(1, is(both(greaterThanOrEqualTo(1).and9(lessThanOrEqualTo(2)))));
 ```java
 // From our AssertUtil Library
 public static <T extends Comparable<T>> Matcher<T> between(T start, T end) {
-    CombinableBothMatcher<T> both = both(greaterThanOrEqualTo(start)); // <-- We need to do this on a separate line because of a JDK Compiler Issue.
+    CombinableBothMatcher<T> both = both(greaterThanOrEqualTo(start));
     return both.and(lessThanOrEqualTo(end));
 }
 ```
