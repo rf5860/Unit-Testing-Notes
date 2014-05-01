@@ -3,8 +3,7 @@ Unit-Testing-Notes
 
 Notes on Different Testing Strategies
 
-- Hamcrest
- We were previously using 1.1. Upgraded our libraries to 1.3 early this week.
+- Hamcrest - We were previously using 1.1. Upgraded our libraries to 1.3 early this week.
  - Matchers
    Nice (new) matchers:
 
