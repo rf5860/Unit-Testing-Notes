@@ -88,6 +88,15 @@ assertThat(today, is(between(yesterday, tomorroww)));
 
 Awesome!
 
+Moving forward, it'd be nice if we had some wrappers around checking for various messages are contained in a List of service results. This would mean we could do things like the following:
+
+```java
+List<ServiceResults> results = //... call some service
+assertThat(results, hasMessage(message));
+```
+
+The main issue I've encountered in trying to write this is that you don't have a lot of control over the output of the actual value.
+
 - Fest
  - Comparison to Hamcrest
   - Less imports (Not so much an issue with Eclipse Favourites)
